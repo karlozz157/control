@@ -31,7 +31,11 @@ class OutflowService
      */
     public function new(Outflow $outflow)
     {
-        $outflowData = array();
+        $outflowData = array(
+            'name'   => $outflow->getName(),
+            'date'   => $outflow->getDate(),
+            'amount' => $outflow->getAmount(),
+        );
 
         return $this->pdoAdapter->insert(self::TABLE, $outflowData);
     }
@@ -42,8 +46,13 @@ class OutflowService
      */
     public function edit(Outflow $outflow)
     {
-        $outflowData  = array();
-        $outflowWhere = array();
+        $outflowData = array(
+            'name'   => $outflow->getName(),
+            'date'   => $outflow->getDate(),
+            'amount' => $outflow->getAmount(),
+        );
+
+        $outflowWhere = array('id' => $outflow->getId());
 
         return $this->pdoAdapter->update(self::TABLE, $outflowData, $outflowWhere)
     }
@@ -54,9 +63,8 @@ class OutflowService
      */
     public function delete(Outflow $outflow)
     {
-        $outflowData  = array();
-        $outflowWhere = array();
+        $outflowWhere = array('id' => $outflow->getId());
 
-        return $this->pdoAdapter->delete(self::TABLE, $outflowData, $outflowWhere);
+        return $this->pdoAdapter->delete(self::TABLE, $outflowWhere);
     }
 }

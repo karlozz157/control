@@ -1,6 +1,6 @@
 <?php
 
-class OutflowCollection
+class OutflowCollection extends ArrayIterator
 {
     
 }

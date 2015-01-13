@@ -1,6 +1,6 @@
 <?php
 
-class InflowCollection
+class InflowCollection extends ArrayIterator
 {
     
 }

@@ -19,6 +19,13 @@ class OutflowService
 
         foreach ($outflowsArray as $outflowArray) {
             $outflow = new Outflow();
+
+            $outflow
+                ->setName($outflowArray['name'])
+                ->setDate($outflowArray['date'])
+                ->setAmount($outflowArray['amount'])
+            ;
+
             $outflowCollection->append($outflow);
         }
 

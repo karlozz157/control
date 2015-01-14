@@ -11,13 +11,16 @@ abstract class Controller
      * @param string $fileName
      * @param array $vars
      */
-    protected function view($fileName, array $vars)
+    protected function view($fileName, array $vars = array())
     {
-        if (!file_exists($fileName)) {
+        $file = "./Views/Inflow/$fileName.php";
+
+        if (!file_exists($file)) {
             throw new Exception('The file does not exists.');
         }
 
         $vars;
-        require_once "fileName.php";
+
+        require $file;
     }
 }
